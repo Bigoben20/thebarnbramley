@@ -1,5 +1,5 @@
-var currentURL = window.location.pathname;
-console.log(currentURL.replace("/thebarnbramley",""));
+var currentURL = window.location.pathname.replace("/thebarnbramley/","");
+console.log(currentURL);
 
 let routes = [
     {name:"Home", path:"index"},
@@ -9,25 +9,28 @@ let routes = [
 
 let navbar = $(".navbar-nav");
 navbar.html("");
-routes.forEach(element => {
-    if (element.path == currentURL.replace("/thebarnbramley","")) {
+for (let index = 0; index < routes.length; index++) {
+    const element = routes[index];
+    
+    if (element.path == currentURL) {
         navbar.append('<li class="nav-item active">\
             <a class="nav-link" href="'+element.path+'">'+element.name+'\
             </a>\
         </li>'); 
+        continue;
     }
     navbar.append('<li class="nav-item">\
             <a class="nav-link" href="'+element.path+'">'+element.name+'\
             </a>\
         </li>'); 
-});
+};
 
 navbar.append('<li class="nav-item">\
             <a class="nav-link" href="menu">Menu\
             </a>\
         </li>'); 
 
-navbar.append('<li class="nav-item">\
-        <a class="nav-link" href="order-now">Order Now\
+navbar.append('<li class="d-flex justify-content-center align-items-start pt-1">\
+        <a class="primary-button" href="order-now">Order Now\
         </a>\
     </li>'); 
