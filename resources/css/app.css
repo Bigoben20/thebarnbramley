@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+    scroll-behavior: smooth;
+}
+.familyBebas {
+    font-family: 'Bebas Neue', sans-serif;
+}
+.navlink {
+    @apply text-white hoverEffectOpacity relative familyBebas;
+}
+.navlink:after {
+    content: "";
+    position: absolute;
+    left:0;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width .3s ease-out;
+}
+.navlink:hover:after {
+    width: 100%;
+}
+.hoverEffect {
+    @apply hover:brightness-105 active:brightness-110 transition-all duration-200;
+}
+
+.hoverEffectOpacity {
+    @apply hover:opacity-95 active:opacity-90 transition-all duration-200;
+}
